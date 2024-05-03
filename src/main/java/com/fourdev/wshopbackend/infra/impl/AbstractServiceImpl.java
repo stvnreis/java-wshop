@@ -6,28 +6,29 @@ import com.fourdev.wshopbackend.infra.api.AbstractService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class AbstractServiceImpl<T extends AbstractDomain> implements AbstractService<T> {
+public class AbstractServiceImpl<Domain extends AbstractDomain> implements AbstractService<Domain> {
 
-    @Autowired
-    protected AbstractRepository abstractRepository;
+    @Autowired(
+            required = false
+    )
+    protected AbstractRepository<Domain> abstractRepository;
 
     @Override
     @Transactional
-    public void create(T entity) {
+    public void create(Domain entity) {
         this.abstractRepository.create(entity);
     }
 
     @Override
-    public List<T> findAll() {
-        return (List<T>) this.abstractRepository.findAll();
+    public List<Domain> findAll() {
+        return this.abstractRepository.findAll();
     }
 
     @Override
-    public T findById(Long id) {
+    public Domain findById(Long id) {
 
-        return (T) this.abstractRepository.findById(id);
+        return this.abstractRepository.findById(id);
     }
 }

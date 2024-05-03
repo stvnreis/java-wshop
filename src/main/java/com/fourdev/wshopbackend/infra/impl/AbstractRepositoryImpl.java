@@ -1,19 +1,21 @@
 package com.fourdev.wshopbackend.infra.impl;
 
-import com.fourdev.wshopbackend.domain.AbstractDomain;
-import com.fourdev.wshopbackend.infra.api.AbstractRepository;
-import com.fourdev.wshopbackend.infra.impl.empresa.repository.JpaEmpresaRepository;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+import com.fourdev.wshopbackend.domain.AbstractDomain;
+import com.fourdev.wshopbackend.infra.api.AbstractRepository;
 
 public class AbstractRepositoryImpl<T extends AbstractDomain> implements AbstractRepository<T> {
 
-    protected JpaRepository jpaRepository;
+    @Autowired(
+            required = false
+    )
+    protected JpaRepository<T, Long> jpaRepository;
 
-    public AbstractRepositoryImpl(JpaRepository repository) {
-        this.jpaRepository = repository;
-    }
+    public AbstractRepositoryImpl() {}
 
     @Override
     public void create(T entity) {
@@ -22,11 +24,11 @@ public class AbstractRepositoryImpl<T extends AbstractDomain> implements Abstrac
 
     @Override
     public List<T> findAll() {
-        return (List<T>) this.jpaRepository.findAll();
+        return this.jpaRepository.findAll();
     }
 
     @Override
     public T findById(Long id) {
-        return (T) this.jpaRepository.findById(id).orElse(null);
+        return this.jpaRepository.findById(id).orElse(null);
     }
 }
