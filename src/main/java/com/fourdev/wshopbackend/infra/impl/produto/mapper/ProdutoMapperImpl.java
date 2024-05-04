@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fourdev.wshopbackend.domain.produto.Produto;
-import com.fourdev.wshopbackend.dto.ProdutoDto;
+import com.fourdev.wshopbackend.dto.produto.ProdutoDto;
 import com.fourdev.wshopbackend.infra.api.empresa.mapper.EmpresaMapper;
 import com.fourdev.wshopbackend.infra.api.produto.mapper.ProdutoMapper;
 

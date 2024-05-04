@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fourdev.wshopbackend.domain.produto.Produto;
-import com.fourdev.wshopbackend.dto.ProdutoDto;
+import com.fourdev.wshopbackend.dto.produto.ProdutoDto;
 import com.fourdev.wshopbackend.endpoint.AbstractEndpoint;
 
 /**

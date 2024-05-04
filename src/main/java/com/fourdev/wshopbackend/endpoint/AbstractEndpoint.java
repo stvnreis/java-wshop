@@ -17,16 +17,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.fourdev.wshopbackend.commons.AbstractMapper;
+import com.fourdev.wshopbackend.infra.api.AbstractMapper;
 import com.fourdev.wshopbackend.domain.AbstractDomain;
 import com.fourdev.wshopbackend.dto.AbstractDto;
 import com.fourdev.wshopbackend.infra.api.AbstractService;
 
 public abstract class AbstractEndpoint<Domain extends AbstractDomain, Dto extends AbstractDto> implements IPostEndpoint<Domain, Dto>, IQueryEndpoint<Dto> {
+
     @Autowired(
             required = false
     )
     protected AbstractMapper<Domain, Dto> abstractMapper;
+
     @Autowired(
             required = false
     )
@@ -48,7 +50,7 @@ public abstract class AbstractEndpoint<Domain extends AbstractDomain, Dto extend
     @GetMapping
     public ResponseEntity<List<Dto>> findAll() {
         List<Domain> data = this.abstractService.findAll();
-        return new ResponseEntity<>(this.abstractMapper.mapList(data), HttpStatus.OK);
+        return new ResponseEntity<>(this.abstractMapper.mapListToDto(data), HttpStatus.OK);
     }
 
     @Override

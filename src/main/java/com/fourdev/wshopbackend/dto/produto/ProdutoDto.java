@@ -1,5 +1,6 @@
-package com.fourdev.wshopbackend.dto;
+package com.fourdev.wshopbackend.dto.produto;
 
+import com.fourdev.wshopbackend.dto.AbstractDto;
 import com.fourdev.wshopbackend.dto.empresa.EmpresaDto;
 
 import lombok.Getter;

@@ -1,8 +1,8 @@
 package com.fourdev.wshopbackend.infra.api.produto.mapper;
 
-import com.fourdev.wshopbackend.commons.AbstractMapper;
+import com.fourdev.wshopbackend.infra.api.AbstractMapper;
 import com.fourdev.wshopbackend.domain.produto.Produto;
-import com.fourdev.wshopbackend.dto.ProdutoDto;
+import com.fourdev.wshopbackend.dto.produto.ProdutoDto;
 
 /**
  * @author stevenreis
