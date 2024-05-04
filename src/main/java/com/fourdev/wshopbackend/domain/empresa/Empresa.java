@@ -23,6 +23,8 @@ public class Empresa implements AbstractDomain {
 
     private String dsRazaoSocial;
 
+    private String dsCnpj;
+
     @OneToMany
     private List<Produto> produtos;
 

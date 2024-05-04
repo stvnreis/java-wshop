@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.fourdev.wshopbackend.domain.empresa.Empresa;
@@ -18,4 +19,10 @@ public interface JpaEmpresaRepository extends JpaRepository<Empresa, Long> {
             nativeQuery = true
     )
     List<Empresa> findAll();
+
+    @Query(
+            value = EmpresaSelectSql.select_empresa_by_cnpj,
+            nativeQuery = true
+    )
+    Empresa findByCnpj(@Param("ra_cnpj") String dsCnpj);
 }

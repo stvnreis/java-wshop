@@ -14,6 +14,8 @@ public class EmpresaDto implements AbstractDto {
 
     private String dsRazaoSocial;
 
+    private String dsCnpj;
+
     @Override
     public Long getId() {
         return this.idEmpresa;

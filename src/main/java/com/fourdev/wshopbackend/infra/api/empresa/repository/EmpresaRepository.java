@@ -4,4 +4,6 @@ import com.fourdev.wshopbackend.domain.empresa.Empresa;
 import com.fourdev.wshopbackend.infra.api.AbstractRepository;
 
 public interface EmpresaRepository extends AbstractRepository<Empresa> {
+
+    Empresa findByCnpj(String cnpj);
 }

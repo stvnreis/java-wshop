@@ -16,18 +16,20 @@ public class EmpresaMapperImpl implements EmpresaMapper {
         empresa.setIdEmpresa(dto.getIdEmpresa());
         empresa.setDsNomeFantasia(dto.getDsNomeFantasia());
         empresa.setDsRazaoSocial(dto.getDsRazaoSocial());
+        empresa.setDsCnpj(dto.getDsCnpj());
 
         return empresa;
     }
 
     @Override
-    public EmpresaDto mapToDto(Empresa input) {
+    public EmpresaDto mapToDto(Empresa domain) {
 
         EmpresaDto empresaDto = new EmpresaDto();
 
-        empresaDto.setIdEmpresa(input.getIdEmpresa());
-        empresaDto.setDsNomeFantasia(input.getDsNomeFantasia());
-        empresaDto.setDsRazaoSocial(input.getDsRazaoSocial());
+        empresaDto.setIdEmpresa(domain.getIdEmpresa());
+        empresaDto.setDsNomeFantasia(domain.getDsNomeFantasia());
+        empresaDto.setDsRazaoSocial(domain.getDsRazaoSocial());
+        empresaDto.setDsCnpj(domain.getDsCnpj());
 
         return empresaDto;
     }

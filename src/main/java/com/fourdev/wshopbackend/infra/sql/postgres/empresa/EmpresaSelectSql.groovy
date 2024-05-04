@@ -11,8 +11,20 @@ class EmpresaSelectSql {
         select
             e.id_empresa,
             e.ds_nome_fantasia,
-            e.ds_razao_social
+            e.ds_razao_social,
+            e.ds_cnpj
         from public.empresa e
 
+    """
+
+    public static final String select_empresa_by_cnpj = """
+    
+        select
+            e.id_empresa,
+            e.ds_nome_fantasia,
+            e.ds_razao_social,
+            e.ds_cnpj
+        from public.empresa e
+        where e.ds_cnpj = :ra_cnpj
     """
 }
